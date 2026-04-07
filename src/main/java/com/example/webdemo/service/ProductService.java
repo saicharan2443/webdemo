@@ -26,7 +26,25 @@ public class ProductService {
         return new Products(100,"No item",0);
     }
 
-    public void addproduct(Products prod) {
+    public void addProduct(Products prod) {
         products.add(prod);
+    }
+
+    public void updateProduct(Products prod) {
+       int index=0;
+        for (int i = 0; i < products.size(); i++) {
+            if(products.get(i).getProId()==prod.getProId()){
+                index=i;
+            }
+        }
+        products.set(index,prod);
+    }
+
+    public void deleteProduct(int prodId) {
+       for(Products i:products){
+           if(i.getProId()==prodId){
+               products.remove(i);
+           }
+       }
     }
 }
